@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f4f4f9;
+    background-color: black;
     color: #333;
 }
 
@@ -21,15 +21,15 @@ body {
 /* Hero Section */
 #hero {
     background-color: #282c34;
-    color: white;
+    color: whitesmoke;
     text-align: center;
     padding: 50px 0;
 }
 
 #hero .profile-img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     margin-bottom: 20px;
 }
@@ -43,9 +43,9 @@ body {
     font-size: 1.2em;
 }
 
-/* About Section */
+
 #about {
-    background-color: #fff;
+    background-color: darkgrey;
     padding: 50px 0;
     text-align: center;
 }
@@ -57,10 +57,16 @@ body {
     margin: 0 auto;
 }
 
-/* Projects Section */
+
 #projects {
     padding: 50px 0;
     text-align: center;
+}
+.text{
+    color: white;
+}
+.text1{
+    color: black;
 }
 
 #projects h2 {
@@ -75,7 +81,7 @@ body {
 }
 
 .project-item {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
