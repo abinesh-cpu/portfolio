@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="hero">
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/abi.jpg') }}" alt="Profile Picture" class="profile-img">
+            <h1>Hi, I'm Abinesh R L</h1>
+            <p>Python FullStack Web Developer</p>
+        </div>
+    </div>
+
+    <div id="about" class="container">
+        <h2>About Me</h2><br>
+        <p>Hi there! I'm John Doe, a passionate and results-driven Full-Stack Web Developer with a deep focus on Python and modern web technologies. With several years of experience building and deploying high-quality web applications, I specialize in both the front-end and back-end development processes.
+
+            My technical skills include Python, Django, Flask, JavaScript, React, and SQL databases. I’m particularly skilled at crafting scalable, secure, and high-performance web applications. Whether it's building user-friendly front-end interfaces or designing efficient back-end systems, I enjoy working on all aspects of the web development process.</p>
+        </div>
+
+    <div id="projects" class="container">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="{{ url_for('static', filename='images/netflix.png') }}" alt="Project 1">
+                <h3>NETFLIX CLONE</h3>
+                <p>Created a clone of netflix website using Html , Css.</p>
+                <a href="https://github.com/abinesh-cpu/netflix-clone.git">View Project</a>
+            </div>
+            <div class="project-item">
+                <img src="{{ url_for('static', filename='images/bookmyshow.png') }}" alt="Project 2">
+                <h3>BOOKMYSHOW CLONE</h3>
+                <p>Created a clone of bookmyshow website using Html , Css.</p>
+                <a href="https://github.com/abinesh-cpu/bookmyshow_clone.git">View Project</a>
+            </div>
+            <div class="project-item">
+                <img src="{{ url_for('static', filename='images/puma.png') }}" alt="Project 3">
+                <h3>PUMA CLONE</h3>
+                <p>Created a clone of puma website using Html , Css.</p>
+                <a href="https://github.com/abinesh-cpu/puma-clone.git">View Project</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="skills" class="container">
+        <h2>My Skills</h2>
+        <ul class="skills-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="container">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 . All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
