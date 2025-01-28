@@ -109,7 +109,6 @@ body {
     transform: translateY(-10px);
 }
 
-/* Skills Section */
 #skills {
     background-color: #fff;
     padding: 50px 0;
@@ -136,7 +135,6 @@ body {
     border-radius: 50px;
 }
 
-/* Contact Section */
 #contact {
     background-color: #f9f9f9;
     padding: 50px 0;

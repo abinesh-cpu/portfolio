@@ -3,42 +3,631 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+
+a{
+  text-decoration: none ;
+  color:#fff;
+  transition:0.3s; 
+}
+ul{
+  list-style:none;
+}
+img{
+  max-width: 100%;
+}
+body{
+  font-family: 'Lexend', sans-serif;
+  font-size:16px;
+  line-height:24px; 
+  background-color:#202020;
+}
+.container{
+  width: 1170px;
+  margin:auto;
+}
+
+
+.header-area{
+  padding:25px 0;
+  transition: padding .3s;
+}
+
+.header-area.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: #202020;
+  padding: 5px;
+}
+
+.header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+
+} 
+
+
+.header ul li:first-child {
+  margin-right: auto; 
+}  
+
+.header ul{
+  display: flex;
+  align-items: center; 
+}
+.header ul li{
+  margin: 0 15px;
+}
+.header ul li a{
+  text-transform: capitalize;
+  display: block;
+}
+.header ul li a.active{
+  color: #92d485;
+} 
+.header ul li a:hover{
+  color:#83fd6e;
+}
+.header .menu_icon{
+  color:#fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+}
+
+
+.FirstElement{
+   display:flex;
+   justify-content: space-around;
+   align-items: center;
+   padding-top: 5rem; 
+} 
+
+.FirstElement.adjusted-padding {
+  padding-top: 40px; 
+}
+
+.FirstElement .profile-photo{
+  width: 300px;
+  height:  300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 15px solid #4b6d4e;
+  box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5)
+}
+profile-photo .img{
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+}
+.FirstElement .profile-photo img:hover{
+  transform: scale(1.2);
+}
+.profile-text{
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+}
+.profile-text h5{
+  color: #e5e5e5;
+  font-size: 14px;
+}
+.profile-text h1{
+  color: #92d485;
+  font-size: 3rem; 
+}
+.profile-text p{
+  color:#e5e5e5;
+}
+.profile-text .social i{
+  color : #e5e5e5;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+.profile-text .social i:hover{
+  color:#92d485;
+  transform: rotate(360deg);
+}
+
+
+.about-area{
+  padding-top: 130px;
+  background-color: #202020;
+}
+.about{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:50px;
+}
+.about-content{
+  flex-basis: 60%;
+}
+.about-content h4{
+  color:#92d485;
+  font-size: 40px;
+  line-height: 70px;
+  text-transform: capitalize;
+}
+.about-content ul {
+  color:#fff;
+  text-align: justify;
+}
+
+.about-content ul li {
+  list-style-type: disc;
+  margin-bottom: 10px;
+}
+
+.about-skills{
+  flex-basis: 35%;
+}
+.about-skills ul li{
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.about-skills ul li:last-child{
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+
+.btn-group{
+  margin: 45px 0;
+}
+.btn-group .btn{
+  border-color: #d5d5d5;
+  color: #fff;
+  background-color: #333;
+  padding:12px 25px;
+  margin: 5px 0;
+  margin-right: 7px;
+  border-radius: 30px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+}
+.btn.active{
+  border-color: #92d485;
+}
+
+
+
+#projects {
+    padding: 50px 0;
+    text-align: center;
+}
+.text{
+    color: white;
+}
+.text1{
+    color: black;
+}
+
+#projects h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.project-item h3 {
+    margin: 15px 0;
+}
+
+.project-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+
+
+
+
+.skills-content {
+  padding: 90px 0;
+  background-color: #211f1f;
+}
+
+.skills-title {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.skills-title h4 {
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 40px;
+  color: #92d485;
+  margin-bottom: 20px;
+}
+
+.skills-title p {
+  color: #e5e5e5;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skill {
+  color: #e5e5e5;
+  border: 2px solid #e5e5e5;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  padding: 25px;
+  text-align: center;
+  flex-basis: 32%;
+  transition: .3s;
+}
+
+.skill i {
+  background-color:#92d485;
+  width: 60px;
+  height: 60px;
+  color: #333;
+  font-size: 26px;
+  line-height: 60px;
+  border-radius: 50%;
+}
+
+.skill h4 {
+  font-size: 26px;
+  text-transform: capitalize;
+  margin: 20px 0;
+}
+
+.skill p {
+  text-align: justify;
+}
+
+.skill:hover {
+  border-color:#92d485;
+}
+
+
+
+.contact-content{
+  padding: 100px 0;
+  color: #fff;
+  text-align: center;
+}
+.contact-content .contact-title h4{
+  font-size: 40px;
+  text-transform: capitalize;
+  color:#92d485;
+  padding-bottom: 10px;
+}
+.contact-content .contact-title p{
+  padding-bottom: 20px;
+}
+.contact{
+  max-width: 700px;
+  margin: auto;
+}
+.contact input,.contact textarea{
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.contact .submit{
+  width: auto;
+  background-color:#92d485;
+  padding: 10px 40px;
+  font-weight:bold ;
+  font-size: 18px;
+}
+.contact .submit:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+#msg{
+  color: #fff;
+  font-size: 20px;
+  margin-top: -8px;
+  display: block;
+}
+
+
+
+
+
+
+
+.footer {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 15px 0 26px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer .message {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+  }
+  
+  .copyright {
+    font-size: 12px;
+  }
+
+
+
+
+
+@media only screen and (min-width:1000px) and (max-width:1200px){
+  .container{
+    width: 970px;
+  }
+}
+
+@media(max-width:1050px){
+  .FirstElement{ 
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+  .profile-text{
+    padding: 40px 0px;
+  }
+}
+
+
+
+
+@media only screen and (min-width:768px) and (max-width:999px){
+  .container{
+    width: 750px;
+  } 
+}  
+
+
+
+@media only screen and (max-width:767px){
+  .container{
+    width: 350px;
+  }
+
+  .header .menu_icon {
+    display: block;
+  }
+  .header ul{
+    display: none;
+  }
+  .header i{
+    color: #e5e5e5;
+  }
+
+  .profile-text{
+    width: 350px;
+  }
+  .FirstElement .profile-text p{
+    text-align: justify;
+  }
+  .about{
+    flex-direction: column;
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+  .about-skills{
+    width: 100%;
+    margin-top: 30px;
+  }
+  .education-content .row {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .education-content .row .education,
+  .education-content .row .internship {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+  .project{
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+
+}
+
+
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.logo-img {
+  width: 20px; 
+  height: 20px;
+  border-radius: 80%;
+  border: 2px solid #99cb8f;
+  margin-right: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.logo-text h1 {
+  font-size: 10px; 
+  color: #b0ad9f;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 20;
+  margin: 0;
+}
+
+.logo-text p {
+  font-size: 12px;  
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+.logo-wrapper:hover .logo-img {
+  transform: scale(1.05);
+}
+
+
+   
+</style>
 </head>
 <body>
-    <div id="hero">
+    <header class="header-area">
         <div class="container">
-            <img src="{{ url_for('static', filename='images/abi.jpg') }}" alt="Profile Picture" class="profile-img">
-            <h1>Hi, I'm Abinesh R L</h1>
-            <p>Python FullStack Web Developer</p>
+            <div class="header">
+ 
+<a href="#" class="logo">
+    <div class="logo-wrapper">
+        <img src="../static/images/abi.jpg" alt="Alma Logo" class="logo-img">
+        <div class="logo-text">
+            <h1>ABINESH RL</h1> 
+        </div>
+    </div>
+</a>
+             <ul class="navbar">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="menu_icon">
+                    <i class="fa fa-bars"></i>
+                </div>
+
+            </div>
+        </div> 
+    </header>
+ 
+    <div class="FirstElement" id="home">
+        <div class="profile-photo">
+            <img src="../static/images/img.webp" alt="profile picture">
+        </div>
+        <div class="profile-text">
+
+            <h5>Hi I'm </h5><br>
+            <h1>ABINESH</h1><br>
+            <p>
+                I'm a passionate PYTHON full-stack Web Developer with a strong desire to create innovative solutions and push the boundaries of technology. With a deep love for coding and problem-solving, I thrive on building dynamic and efficient web applications.
+                
+                </p>
+            
+            <div class="btn-group">
+                <a href="#" class="btn   active">Download CV</a>
+              
+            </div>
         </div>
     </div>
 
-    <div id="about" class="container">
-        <h2 class="text1">About Me</h2><br>
-        <p>Hi there! I'm Abinesh, a passionate and results-driven Full-Stack Web Developer with a deep focus on Python and modern web technologies. With several years of experience building and deploying high-quality web applications, I specialize in both the front-end and back-end development processes.
+    <section class="about-area" id="about">
+        <div class="container">
+            <div class="about">
+                
+                <div class="about-content">
+                    <h4>About Me</h4>
+                    <ul>
+                        Hello! I m Abinesh a PYTHON  full-Stack Developer with a strong passion for building dynamic and responsive web applications. I hold a B.Sc. in Computer Science from calicut University, where I gained a solid foundation in programming, problem-solving, and full-stack web development.
 
-            My technical skills include Python, Django, Flask, JavaScript, and SQL databases. I’m particularly skilled at crafting scalable, secure, and high-performance web applications. Whether it's building user-friendly front-end interfaces or designing efficient back-end systems, I enjoy working on all aspects of the web development process.</p>
+                        With expertise in python,Django, React and flask, I specialize in creating seamless web experiences from the front-end to the back-end. My hands-on experience includes developing scalable, user-friendly applications and working on complex integrations to optimize performance.
+                    </ul>
+                </div>
+                                  
+                <div class="about-skills">
+                    <ul>
+                        <li>Name:Abinesh R L</li>
+                        <li>Phone:887348345367</li>      
+                        <li>From:India</li>
+                        <li>Email:abihere7@gmail.com</li>          
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
     <div id="projects" class="container">
         <h2 class="text">My Projects</h2>
         <div class="project-grid">
             <div class="project-item">
-                <img src="{{ url_for('static', filename='images/netflix.png') }}" alt="Project 1">
+                <img src="../static/images/netflix.png" alt="Project 1">
                 <h3>NETFLIX CLONE</h3>
                 <p>Created a clone of netflix website using Html , Css.</p>
                 <a href="https://github.com/abinesh-cpu/netflix-clone.git">View Project</a>
             </div>
             <div class="project-item">
-                <img src="{{ url_for('static', filename='images/bookmyshow.png') }}" alt="Project 2">
+                <img src="../static/images/bookmyshow.png" alt="Project 2">
                 <h3>BOOKMYSHOW CLONE</h3>
                 <p>Created a clone of bookmyshow website using Html , Css.</p>
                 <a href="https://github.com/abinesh-cpu/bookmyshow_clone.git">View Project</a>
             </div>
             <div class="project-item">
-                <img src="{{ url_for('static', filename='images/puma.png') }}" alt="Project 3">
+                <img src="../static/images/puma.png" alt="Project 3">
                 <h3>PUMA CLONE</h3>
                 <p>Created a clone of puma website using Html , Css.</p>
                 <a href="https://github.com/abinesh-cpu/puma-clone.git">View Project</a>
@@ -46,34 +635,70 @@
         </div>
     </div>
 
-    <div id="skills" class="container">
-        <h2>My Skills</h2>
-        <ul class="skills-list">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-        </ul>
-    </div>
+    <section class="skills-content" id="skills">
+        <div class="container">
+            <div class="skills-title">
+                <h4>Skills</h4>
+                <p>Technologies and Tools I've worked with</p>
+            </div>
+            <div class="skills">
+           <div class="skill">
+            <i class="fa-brands fa-python"></i>
+            <h4>Python</h4>
+            <p>Data science, automation, and web development using Python and frameworks like FLASK and DJANGO.</p>
+        </div>
+                 <div class="skill">
+                  <i class="fa-brands fa-html5"></i>
+                  <h4>HTML</h4>
+                  <p>Building well-structured web pages with semantic HTML elements.</p>
+              </div>
+                <div class="skill">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <h4>CSS</h4>
+                    <p>Styling responsive and dynamic web pages using modern CSS techniques.</p>
+                </div>
+                  <div class="skill">
+                    <i class="fa-brands fa-js-square"></i>
+                    <h4>JavaScript</h4>
+                    <p>Writing dynamic client-side code with JavaScript and ES6+ features.</p>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-database"></i> 
+                    <h4>MySQL</h4>
+                    <p>Building and managing relational databases with MySQL.</p>
+                </div>
+            <div class="skill">
+            <i class="fa-brands fa-bootstrap"></i>
+            <h4>Bootstrap</h4>
+            <p>Bootstrap is a powerful front-end framework for developing responsive, mobile-first websites quickly and easily.</p>
+            </div>
+            </div>
+        </div>
+    </section>
 
-    <div id="contact" class="container">
-        <h2>Contact</h2>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+    
+    <section class="contact-content" id="contact">
+        <div class="container">
+            <div class="contact-title">
+                <h4>Contact Me</h4>
+                <p>Get In Touch</p>
+            </div>
+            <div class="contact">
+                <form name="submitToGoogleSheet" action="/send_mail" method="post">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <input type="submit" value="Send Message" class="submit">
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 . All Rights Reserved.</p>
-    </footer>
+        <small class="copyright">ABINESH</small>
+        <small class="message">Personal Portfolio website </small>
+    
+       </footer>
 </body>
 </html>
