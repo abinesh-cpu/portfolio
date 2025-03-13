@@ -209,6 +209,87 @@ profile-photo .img{
   border-color: #92d485;
 }
 
+.education-content .row{
+  display: flex;
+  border-radius: 5px;
+  height: 400px;
+  margin-bottom: 250px;
+}
+
+.education-content .title{
+  color: #92d485;
+}
+.education-content .row .education,
+.education-content .row .internship
+{
+  color: #e5e5e5;
+  flex:0 0 50%;
+  max-width: 50%;
+  margin-top: 30px;
+} 
+.education-content  h3.title{
+  font-size:24px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+.education-content .row.timeline-box{
+  flex:0 0 100%;
+  max-width: 100%;  
+}
+.education-content .row .timeline{
+  /* background-color:#e5e5e5; */
+  padding: 30px 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+.education-content .row .timeline-item{
+  position:relative;
+  padding-left: 37px;
+  padding-bottom: 50px; 
+}
+.education-content .row  .internship .timeline-item{
+  position:relative;
+  padding-left: 37px;
+  padding-bottom: 30px; 
+}
+.education-content .row .timeline-item:last-child{
+  padding-bottom: 0;
+}
+.education-content .row .timeline-item::before{
+  content: "";
+  width: 1px;
+  position: absolute;
+  height: 100%;
+  left: 7px;
+  top: 0;
+  background-color:#92d485;  
+}
+.education-content .row .circle-dot{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+}
+.education-content .row .timeline-title  {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.education-content .row .internship .timeline-title  {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.education-content .row .timeline-text{
+  line-height: 25px;
+  font-size: 16px;
+  text-align: justify;
+}
 
 
 #projects {
@@ -268,7 +349,7 @@ profile-photo .img{
 
 .skills-content {
   padding: 90px 0;
-  background-color: #211f1f;
+  background-color: #100f0f;
 }
 
 .skills-title {
@@ -289,6 +370,7 @@ profile-photo .img{
 }
 
 .skills {
+  
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -298,6 +380,7 @@ profile-photo .img{
   color: #e5e5e5;
   border: 2px solid #e5e5e5;
   border-radius: 10px;
+  margin: 10PX;
   width: 100%;
   position: relative;
   padding: 25px;
@@ -479,7 +562,13 @@ profile-photo .img{
     padding: 40px 0px;
   } */
 }
-
+/* @media(max-width:767px){
+  .education{
+    position: sticky; 
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+} */
 
 
 .logo {
@@ -530,7 +619,114 @@ profile-photo .img{
 .logo-wrapper:hover .logo-img {
   transform: scale(1.05);
 }
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+  .FirstElement {
+    flex-direction: column;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  .profile-text {
+    padding: 40px 0;
+  }
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-skills {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .education-content .row {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 50px;
+  }
+  .education-content .row .education,
+  .education-content .row .internship {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  .header .menu_icon {
+    display: block;
+  }
+  .header ul {
+    display: none;
+  }
+  .profile-text {
+    width: 100%;
+  }
+  .FirstElement .profile-photo {
+    width: 250px;
+    height: 250px;
+    border-width: 10px;
+  }
+  .about-content h4 {
+    font-size: 30px;
+    line-height: 50px;
+  }
+  .skills {
+    flex-direction: column;
+  }
+  .skill {
+    flex-basis: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header-area {
+    padding: 10px 0;
+  }
+  .FirstElement .profile-photo {
+    width: 200px;
+    height: 200px;
+  }
+  .profile-text h1 {
+    font-size: 2rem;
+  }
+  .education-content .row .timeline {
+    padding: 20px 10px;
+  }
+  .contact input,
+  .contact textarea {
+    padding: 10px;
+  }
+}
 
    
 </style>
@@ -542,7 +738,7 @@ profile-photo .img{
  
 <a href="#" class="logo">
     <div class="logo-wrapper">
-        <img src="../static/images/abi.jpg" alt="Abi Logo" class="logo-img">
+        <img src="../static/images/A5759.jpg" alt="Abi Logo" class="logo-img">
         <div class="logo-text">
             <h1>ABINESH RL</h1> 
         </div>
@@ -551,6 +747,7 @@ profile-photo .img{
              <ul class="navbar">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">skills</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -566,12 +763,12 @@ profile-photo .img{
  
     <div class="FirstElement" id="home">
         <div class="profile-photo">
-            <img src="../static/images/img.webp" alt="profile picture">
+            <img src="../static/images/A5759.jpg" alt="profile picture">
         </div>
         <div class="profile-text">
 
             <h5>Hi I'm </h5><br>
-            <h1>ABINESH</h1><br>
+            <h1>ABINESH R L</h1><br>
             <p>
                 I'm a passionate PYTHON full-stack Web Developer with a strong desire to create innovative solutions and push the boundaries of technology. With a deep love for coding and problem-solving, I thrive on building dynamic and efficient web applications.
                 
@@ -608,6 +805,90 @@ profile-photo .img{
             </div>
         </div>
     </section>
+    <section class="education-content" id="education">
+      <div class="container">
+          <div class="row">
+              <div class="education ">
+                  <h3 class="title">Education</h3>
+                  <div class="row">
+                      <div class="timeline-box">
+                          <div class="timeline">
+
+                              <!-- item1 -->
+                              <div class="timeline-item">
+                                  <div class="circle-dot"></div>
+                                  <h3 class="timeline-title">
+                                      Bachelor of science in computer science
+                                  </h3>
+                                  <h4 class="timeline-title">Paramekkave College Of Arts and Science
+                                      <br>Calicut University,Kerala
+                                  </h4>
+                                  <h4 class="timeline-title">
+                                      <i class="fa fa-calendar"></i> 2021-2024
+                                  </h4>
+                              </div> 
+                              <!--item2-->
+                              <div class="timeline-item">
+                                  <div class="circle-dot"></div>
+                                  <h3 class="timeline-title">HSC-76%</h3>
+                                  <h4 class="timeline-title">GFHSS NATTIKA
+                                       in THRISSUR<br> (kerala State
+                                      Board),kerala</h4>
+                                  <h4 class="timeline-title">
+                                      <i class="fa fa-calendar"></i> 2017-19     
+                                  </h4>
+                              </div>
+                              <!-- item3 -->
+                              <div class="timeline-item">
+                                  <div class="circle-dot"></div>
+                                  <h3 class="timeline-title">
+                                      SSLC-84%
+                                  </h3>
+                                  <h4 class="timeline-title">GFHSS NATTIKA
+                                    in THRISSUR<br> (kerala State
+                                   Board),kerala</h4>
+                                  <h4 class="timeline-title">
+                                      <i class="fa fa-calendar"></i> 2016-2017
+                                  </h4>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="internship">
+                  <h3 class="title">Internship</h3>
+                  <div class="row">
+                      <div class="timeline-box">
+                          <div class="timeline">
+                              
+                              <!-- intership -->
+                              <div class="timeline-item">
+                                  <div class="circle-dot"></div>
+                                  <h3 class="timeline-title">
+                                      WEB DEVELOPMENT
+                                  </h3>
+                                  <h4 class="timeline-title">PYTHON full-Stack</h4>
+                                  <h4 class="timeline-title">MARCH 2025- APRIL 2025
+                                      <i class="fa fa-calendar"></i> 
+                                <br>                                      
+                                      Proficient PYTHON full-Stack Developer with a strong foundation in building web applications using python, django, React and flask Experienced in developing intuitive user interfaces, creating efficient backend APIs, and integrating databases.
+                                      During my two-week internship, I applied my skills to real-world projects, enhancing my proficiency in full-stack development. This experience allowed me to
+                                      <br><br>
+                                     
+                                     
+                                      <p>* Gain practical exposure to the software development lifecycle.</p>
+                                      
+                                      <p>* Strengthen my problem-solving and teamwork abilities.</p> 
+                                  
+                </div> 
+                  </div>
+            </div>
+              </div>
+   </div>
+ </div>
+  </section>
+
 
     <div id="projects" class="container">
         <h2 class="text">My Projects</h2>
